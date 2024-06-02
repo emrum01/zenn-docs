@@ -15,7 +15,7 @@ published: false
 
 今回は後者を使って、html に svelte コンポーネントを呼び出す内容となっています。
 
-記事用の github リポジトリを作成したので参考にしてください。
+記事用の github リポジトリを作成したのでよかったら参考にしてください。
 
 - https://github.com/emrum01/svelte-create-component-from-constructor
 

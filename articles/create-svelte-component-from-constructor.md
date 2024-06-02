@@ -170,11 +170,12 @@ export default config;
 ```
 
 js ファイルにバンドルしたものを dist ディレクトリに出力したいので[ライブラリーモード](https://ja.vitejs.dev/guide/build#library-mode)を使っています。
+また、[`vite-plugin-css-injected-by-js`](https://github.com/marco-prontera/vite-plugin-css-injected-by-js)を使用して css も生成される js ファイルにまとめました。
 
-css を js にまとめてバンドルするために`vite-plugin-css-injected-by-js`を使っています。
+#### 注意点
 
-注意点としては、js・ts ファイルから svelte コンポーネントを再エクスポートしないと tailwind が当たらなかったことです。
-vite の設定次第で別な解決方法があるのかもしれませんが、配信するコンポーネントは再エクスポートすることをお勧めします。
+js・ts ファイルから svelte コンポーネントを再エクスポートしないと スタイル が当たらなかったことです。
+使用するスタイリングライブラリや vite の設定次第で別な解決方法があるのかもしれませんが、配信するコンポーネントは再エクスポートすることをお勧めします。
 
 ## 動作確認をする
 
@@ -238,5 +239,7 @@ npx http-server ./dist -c-1 -p 80
 これで以下のように表示されるはずです。
 
 ![](/images/create-svelte-component-from-constructor/button-example.png)
+
+## 配信する
 
 あとはどこかにホスティングするなり、npm で配信するだけです。

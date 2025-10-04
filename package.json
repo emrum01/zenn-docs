@@ -1,23 +1,36 @@
 {
   "name": "zenn-docs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Zenn記事管理用リポジトリ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "new": "zenn new:article",
+    "new:book": "zenn new:book",
+    "new:with-slug": "zenn new:article --slug",
+    "preview": "zenn preview --port 8000",
+    "lint": "zenn lint",
+    "lint:fix": "zenn lint --fix",
+    "list": "zenn list:articles",
+    "list:books": "zenn list:books",
+    "create": "node scripts/create-article.js",
+    "publish": "node scripts/publish.js",
+    "backup": "node scripts/backup.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emrum01/zenn-docs.git"
   },
-  "keywords": [],
+  "keywords": ["zenn", "blog", "technical-writing"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/emrum01/zenn-docs/issues"
   },
   "homepage": "https://github.com/emrum01/zenn-docs#readme",
   "dependencies": {
-    "zenn-cli": "^0.1.143"
+    "zenn-cli": "^0.2.3",
+    "inquirer": "^8.2.5",
+    "chalk": "^4.1.2",
+    "date-fns": "^2.29.3"
   }
 }

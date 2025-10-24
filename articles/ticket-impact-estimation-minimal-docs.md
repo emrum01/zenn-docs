@@ -149,44 +149,6 @@ AIが以下のようなドキュメントを生成します。
 
 # スラッシュコマンド・自動化例
 
-### ローカルスクリプト
-
-```bash
-#!/usr/bin/env bash
-ISSUE_BODY="$(cat -)"
-API_KEY="YOUR_API_KEY"
-PROMPT_FILE="prompt/impact_estimation_prompt.md"
-
-payload=$(jq -n --arg body "$ISSUE_BODY" --arg prompt "$(cat $PROMPT_FILE)" '{body:$body, prompt:$prompt}')
-curl -s -X POST "https://api.your-ai-provider/v1/generate" \
-  -H "Authorization: Bearer $API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "$payload"
-```
-
-### GitHub Actions での自動生成
-
-```yaml
-name: generate-impact-doc
-on:
-  pull_request:
-    types: [opened, edited]
-jobs:
-  generate:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Generate ticket impact doc
-        run: |
-          ISSUE_BODY="$(gh pr view ${{ github.event.pull_request.number }} --json body -q .body)"
-          echo "$ISSUE_BODY" | ./scripts/generate_impact_doc.sh > out.md
-      - name: Comment on PR
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body-file: out.md
-```
 
 ---
 

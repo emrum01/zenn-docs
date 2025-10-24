@@ -4,7 +4,6 @@ emoji: "🧩"
 type: "tech"
 topics: ["ai", "frontend", "documentation", "prompt-engineering"]
 published: false
-publication_name: "ai-catchup"
 ---
 
 # 背景：仕様書駆動開発の限界を超えるために
